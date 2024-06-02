@@ -114,7 +114,7 @@ RSAEncryption encrypt_rsa(const string &s) {
     ll q = factors.second;
     // Step 2: Consider the product of both numbers
     ll n = p * q;
-    // Step 3: Find a number coprime to phi(n) (euler's prime counting function)
+    // Step 3: Find a number coprime to phi(n) (euler's totient function)
     ll e = generate_public_key(p, q);
     // Step 4: Calculate the modular multiplicative inverse of e mod phi(n)
     ll d = generate_private_key(p, q, e);
