@@ -2,6 +2,7 @@
 #include <unordered_set>
 #include <numeric>
 #include <iostream>
+#include <random>
 
 using namespace std;
 
@@ -32,8 +33,11 @@ unordered_set<ll> generate_primes() {
 
 pll generate_factors_random() {
     unordered_set < ll > primes = generate_primes();
+    random_device rd;
+    mt19937 rng(rd());
+    uniform_int_distribution<ll> uni(5, primes.size());
     // find p
-    ll randpos1 = rand() % primes.size();
+    ll randpos1 = uni(rng);
     auto it = primes.begin();
     for (ll i = 0; i < randpos1; ++i) {
         ++it;
@@ -42,7 +46,7 @@ pll generate_factors_random() {
     primes.erase(it);
 
     // find q
-    ll randpos2 = rand() % primes.size();
+    ll randpos2 = uni(rng);
     auto it2 = primes.begin();
     for (ll i = 0; i < randpos2; ++i) {
         ++it2;
