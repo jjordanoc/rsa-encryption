@@ -144,7 +144,7 @@ string decrypt_rsa(const RSAEncryption &encryption) {
 int main() {
     string s;
     cout << "Ingrese la cadena a encriptar: ";
-    cin >> s;
+    getline(cin, s);
     RSAEncryption encryption = encrypt_rsa(s);
     cout << "La cadena encriptada es: ";
     for (ll i = 0; i < encryption.data.size(); ++i) {
